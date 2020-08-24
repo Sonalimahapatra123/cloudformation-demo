@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: 'AWS CloudFormation Sample Template S3_Website_Bucket_With_Retain_On_Delete'
+Description: 'Sample Template S3_Website_Bucket_With_Retain_On_Delete'
 Resources:
     S3Bucket:
         Type: 'AWS::S3::Bucket'
