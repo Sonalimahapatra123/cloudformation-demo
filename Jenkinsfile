@@ -1,8 +1,6 @@
 pipeline {
     agent any
-    {
-      STACK_NAME = "s3bucket"
-    }
+       STACK_NAME = "s3bucket"
     stages {
         stage('Submit Stack') {
             steps {
