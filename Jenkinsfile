@@ -5,9 +5,9 @@ pipeline {
             steps {
             sh "aws cloudformation get-template --stack-name s3bucket"
             stack_name="s3bucket"
-            #$STACK_NAME
+            //$STACK_NAME
             region="us-east-1"
-            #$REGION
+            //$REGION
             type_formation=""
             if ! aws cloudformation describe-stacks --region $region --stack-name $stack_name ; then
                 echo "1"
