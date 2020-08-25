@@ -11,7 +11,7 @@ Description: >
 
 Parameters:
   PipelineName:
-    Description: A name for pipeline
+    Description: A pipeline name
     Type: String
   S3Bucket:
     Description: The name of the S3 bucket that contains the source artifact, which must be in the same region as this stack
