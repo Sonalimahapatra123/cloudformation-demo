@@ -6,9 +6,10 @@
             #REGION= $us-east-1
             #$REGION
             type_formation=""
-            aws cloudformation list-stacks 
-            if ! aws cloudformation describe-stacks --stack-name s3bucket ; then
-            aws cloudformation create-stack --stack-name test_stack --template-body file://simplests3cft.json --region us-east-1
+            #aws cloudformation list-stacks 
+            if ! aws cloudformation describe-stacks --stack-name test_stack ; then
+            echo "No-Stack"
+            type_formation="create-stack"
             else
               type_formation='update-stack'
             fi
