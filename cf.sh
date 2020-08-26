@@ -7,9 +7,9 @@
             #$REGION
             type_formation=""
             #aws cloudformation list-stacks 
-            if aws cloudformation stack-exists --stack-name abcd ; then
+            if aws cloudformation stack-exists --stack-name TestStack ; then
              echo "Stack is Available"
-             
+             aws cloudformation update-stack --stack-name TestStack --template-body file://simplests3cft.json --region us-east-1
             else
               echo "Stack is not Available"
               #aws cloudformation create-stack --stack-name TestStack --template-body file://simplests3cft.json --region us-east-1
