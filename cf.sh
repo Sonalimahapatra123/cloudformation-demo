@@ -1,71 +1,14 @@
-#!/usr/bin/env bash
-
-usage="Usage: $(basename "$0") region stack-name [aws-cli-opts]
-where:
-  region       - us-east-1
-  stack-name   - s3bucket
-  aws-cli-opts - extra options passed directly to create-stack/update-stack
-"
-
-if [ "$1" == "-h" ] || [ "$1" == "--help" ] || [ "$1" == "help" ] || [ "$1" == "usage" ] ; then
-  echo "$usage"
-  exit -1
-fi
-
-if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ] ; then
-  echo "$usage"
-  exit -1
-fi
-
-shopt -s failglob
-set -eu -o pipefail
-
-echo "Checking if stack exists ..."
-
-if ! aws cloudformation describe-stacks --region $1 --stack-name $2 ; then
-
-  echo -e "\nStack does not exist, creating ..."
-  aws cloudformation create-stack \
-    --region $1 \
-    --stack-name $2 \
-    ${@:3}
-
-  echo "Waiting for stack to be created ..."
-  aws cloudformation wait stack-create-complete \
-    --region $1 \
-    --stack-name $2 \
-
-else
-
-  echo -e "\nStack exists, attempting update ..."
-
-  set +e
-  update_output=$( aws cloudformation update-stack \
-    --region $1 \
-    --stack-name $2 \
-    ${@:3}  2>&1)
-  status=$?
-  set -e
-
-  echo "$update_output"
-
-  if [ $status -ne 0 ] ; then
-
-    # Don't fail for no-op update
-    if [[ $update_output == *"ValidationError"* && $update_output == *"No updates"* ]] ; then
-      echo -e "\nFinished create/update - no updates to be performed"
-      exit 0
-    else
-      exit $status
-    fi
-
-  fi
-
-  echo "Waiting for stack update to complete ..."
-  aws cloudformation wait stack-update-complete \
-    --region $1 \
-    --stack-name $2 \
-
-fi
-
-echo "Finished create/update successfully!"
+            #!/bin/bash
+            #set -x
+            #sh "aws cloudformation get-template --stack-name s3bucket"
+            #STACK_NAME= $s3bucket
+            #$STACK_NAME
+            #REGION= $us-east-1
+            #$REGION
+            type_formation=""
+            if ! aws cloudformation describe-stacks --stack-name s3bucket ; then
+            aws cloudformation create-stack --stack-name test_stack --template-body file://simplests3cft.json --region us-east-1
+            else
+              type_formation='update-stack'
+            fi
+            echo "Success"
