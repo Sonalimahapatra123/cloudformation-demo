@@ -8,7 +8,7 @@
             type_formation=""
             #aws cloudformation list-stacks 
             if aws cloudformation describe-stacks --stack-name TestStack ; then
-             echo "Not A Exisiting Stack"
+             aws cloudformation create-stack --stack-name test_stack --template-body file://simplests3cft.json --region us-east-1
             else
               echo "Stack is Available"
            fi
