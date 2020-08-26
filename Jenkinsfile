@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Submit Stack') {
             steps {
-            sh "chmod +x cf.sh"
+            sh "+x cf.sh"
             sh "./cf.sh"
               }
              }
