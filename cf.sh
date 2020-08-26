@@ -11,7 +11,7 @@
              echo "Stack is Available"
             else
               echo "Stack is not Available"
-              aws cloudformation create-stack --stack-name TestStack --template-body file://simplests3cft.json --region us-east-1
+              #aws cloudformation create-stack --stack-name TestStack --template-body file://simplests3cft.json --region us-east-1
               
            fi
              echo "SUCCESS"
