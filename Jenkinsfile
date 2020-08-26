@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Submit Stack') {
             steps {
-            sh "chmod 755 /var/lib/jenkins/workspace/Cloud_Formation-Pipeline/cf.sh"
+            sh "chmod +x cf.sh && ./cf.sh"
             sh "./cf.sh"
               }
              }
