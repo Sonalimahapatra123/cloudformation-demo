@@ -7,7 +7,7 @@
             #$REGION
             type_formation=""
             #aws cloudformation list-stacks 
-            if ! aws cloudformation describe-stacks --stack-name s3bucket ; then
+            if ! aws cloudformation describe-stacks --stack-name Test_Stack ; then
              echo "Exisiting Stack"
             else
               echo "No Stack Available"
