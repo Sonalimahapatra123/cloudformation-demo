@@ -7,9 +7,9 @@
             #$REGION
             type_formation=""
             #aws cloudformation list-stacks 
-            if ! aws cloudformation describe-stacks --stack-name Test_Stack ; then
-             echo "Exisiting Stack"
+            if aws cloudformation describe-stacks --stack-name TestStack ; then
+             echo "Not A Exisiting Stack"
             else
-              echo "No Stack Available"
+              echo "Stack is Available"
            fi
              echo "SUCCESS"
