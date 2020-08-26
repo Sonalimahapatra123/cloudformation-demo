@@ -7,7 +7,7 @@
             #$REGION
             type_formation=""
             #aws cloudformation list-stacks 
-            if aws cloudformation wait stack-exists --stack-name TestStack ; then
+            if aws cloudformation wait stack-exists --stack-name abcd ; then
              echo "Stack is Available"
              
             else
