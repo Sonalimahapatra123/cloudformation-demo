@@ -2,8 +2,8 @@
 
 usage="Usage: $(basename "$0") region stack-name [aws-cli-opts]
 where:
-  region       - the AWS region
-  stack-name   - the stack name
+  region       - us-east-1
+  stack-name   - s3bucket
   aws-cli-opts - extra options passed directly to create-stack/update-stack
 "
 
