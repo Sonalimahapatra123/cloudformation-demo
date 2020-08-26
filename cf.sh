@@ -11,4 +11,4 @@
             else
               type_formation='update-stack'
             fi
-            done
+            echo "Success"
