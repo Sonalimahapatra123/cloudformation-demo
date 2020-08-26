@@ -11,3 +11,5 @@
              echo "Exisiting Stack"
             else
               echo "No Stack Available"
+           fi
+             echo "SUCCESS"
